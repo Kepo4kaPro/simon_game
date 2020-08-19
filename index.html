@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru" xmlns:v-bind xmlns:v-on>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="src/main.css">
+    <title>Simon - the game</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="src/main.js"></script>
+</head>
+<body>
+    <div id="content">
+        <div class="content_box">
+            <div class="rotate_b">
+                <input type="button" value="" v-on:click="press_card(0)" v-bind:class="{ active: card[0] }" class="lamp red">
+                <input type="button" value="" v-on:click="press_card(1)" v-bind:class="{ active: card[1] }" class="lamp green">
+                <input type="button" value="" v-on:click="press_card(2)" v-bind:class="{ active: card[2] }" class="lamp blue">
+                <input type="button" value="" v-on:click="press_card(3)" v-bind:class="{ active: card[3] }" class="lamp yellow">
+            </div>
+        </div>
+        <div class="time_panel">{{time}}</div>
+        <div class="message" v-bind:class="{ show: message_show }">{{message_content}}</div>
+        <div class="content_input" v-bind:class="{ show: visible }">
+            <h1>SIMON</h1>
+            <div class="input_box" v-bind:class="{ show: visible_start }">
+                <input type="button" value="Легко"  v-on:click="press_start_game(0)">
+                <input type="button" value="Средне" v-on:click="press_start_game(1)">
+                <input type="button" value="Тяжело" v-on:click="press_start_game(2)">
+            </div>
+            <div class="input_box" v-bind:class="{ show: visible_end }">
+                <div class="round"><p>Время {{time}}</p></div>
+                <div class="round"><h2>{{raund}}</h2><p>Раунд</p></div>
+                <input type="button" value="Переиграть" v-on:click="press_restart()">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
