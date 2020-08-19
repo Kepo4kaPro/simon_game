@@ -1,1 +1,1 @@
-# simon_game
+# Simon (HTML CSS JS VUE.JS)
